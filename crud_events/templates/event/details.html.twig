@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+            {{parent()}}
+            <style>
+                img {
+                    width: 30rem;
+                    min-width: 100px;
+                    height: 15rem;
+                    min-height: 100px;
+                    object-fit: cover;
+                }
+
+                .page-header {
+                    padding-bottom: 1em;
+                    padding-top: 1em;
+                    text-align: center;
+                    color: #05445E;
+                    text-shadow: 2px 2px #D4F1F4;
+                }
+
+                .d-flex {
+                    background-color: #D4F1F4;
+                }
+            </style>
+{% endblock %}
+
+{% block body %}
+
+<hr>
+<h2 class="page-header">{{event.name}}</h2>
+<div class="d-flex">
+    <img src="{{event.picture}}" alt="Event Picture"  class="img-thumbnail">
+    <div class="m-5">
+        <table>
+            <tr>
+                <th>Location: </th>
+                <td>{{event.location}}</td>
+            </tr>
+            <tr>
+                <th>Date:</th>
+                <td>{{event.date|date('F j, Y, g:i a')}} </td>
+            </tr>
+            <tr>
+                <th>Capacity:</th>
+                <td>{{event.capacity}} </td>
+            </tr>
+            <tr>
+                <th>Phone:</th>
+                <td>{{event.phone}} </td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{event.email}} </td>
+            </tr>
+            <tr>
+                <th>Website:</th>
+                <td>{{event.url}}</td>
+            </tr>
+        </table>
+        <p class="py-2">{{event.description}}</p>
+    </div>
+</div>
+<a class="btn btn-warning mt-5" href="/">Back to Events</a>
+
+{% endblock %}
